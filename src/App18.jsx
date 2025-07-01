@@ -1,0 +1,103 @@
+import {
+  Button,
+  Container,
+  Modal,
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavLink,
+  Pagination,
+  Spinner,
+  Form,
+  FloatingLabel,
+} from "react-bootstrap";
+import { FcNext, FcPrevious } from "react-icons/fc";
+import { useState } from "react";
+
+function App18() {
+  const [show, setShow] = useState(false);
+  return (
+    <div>
+      <FloatingLabel label="아이디를 입력해주세요." controlId="idFloatingInput">
+        <Form.Control placeholder="아이디를 입력해주세요." />
+      </FloatingLabel>
+      <FloatingLabel
+        label="패스워드를 입력해주세요."
+        controlId="passwordFloatingInput"
+      >
+        <Form.Control type="password" placeholder="패스워드를 입력해주세요" />
+      </FloatingLabel>
+      <hr />
+      <Form.Group controlId="idInput">
+        <Form.Label>아이디</Form.Label>
+        <Form.Control />
+      </Form.Group>
+      <Form.Group controlId="passwardInput">
+        <Form.Label>패스워드</Form.Label>
+        <Form.Control type="password" />
+      </Form.Group>
+      <Form.Group controlId="contentTextarea">
+        <Form.Label>본문</Form.Label>
+        <Form.Control as="textarea" />
+      </Form.Group>
+      <hr />
+      <Button onClick={() => setShow(!show)}>모달 예제</Button>
+      <Modal
+        show={show}
+        onHide={() => {
+          setShow(!show);
+        }}
+      >
+        <Modal.Header closeButton={true}>
+          <Modal.Title>Lorem ipsum dolor sit amet.</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
+          autem dignissimos earum excepturi expedita minima modi nesciunt
+          repellat rerum. Ad eaque error esse fugit ipsa magni natus non placeat
+          quidem.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShow(!show)}>
+            Close
+          </Button>
+          <Button onClick={() => setShow(!show)}>Save</Button>
+        </Modal.Footer>
+      </Modal>
+      <hr />
+      <Navbar className="bg-body-tertiary" expand="lg">
+        <Container>
+          <Navbar.Brand>PROJECT</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <NavLink href="/">Home</NavLink>
+              <NavLink href="/">Link</NavLink>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <hr />
+      <Pagination>
+        <Pagination.Prev>
+          <FcPrevious />
+        </Pagination.Prev>
+        <Pagination.Item>1</Pagination.Item>
+        <Pagination.Item>2</Pagination.Item>
+        <Pagination.Item active={true}>3</Pagination.Item>
+        <Pagination.Item>4</Pagination.Item>
+        <Pagination.Item>5</Pagination.Item>
+        <Pagination.Next>
+          <FcNext />
+        </Pagination.Next>
+      </Pagination>
+      <hr />
+      <Spinner />
+      <Spinner animation="border" />
+      <Spinner animation="grow" />
+      <Spinner animation="grow" variant="warning" />
+      <Spinner animation="grow" variant="danger" />
+    </div>
+  );
+}
+export default App18;
