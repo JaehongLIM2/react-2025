@@ -10,6 +10,7 @@ import {
   Spinner,
   Form,
   FloatingLabel,
+  Carousel,
 } from "react-bootstrap";
 import { FcNext, FcPrevious } from "react-icons/fc";
 import { useState } from "react";
@@ -18,6 +19,29 @@ function App18() {
   const [show, setShow] = useState(false);
   return (
     <div>
+      <Carousel>
+        <Carousel.Item>
+          <a href="https://www.naver.com">
+            <img className="d-block w-100" src="/public/bee.jpg" alt="" />
+          </a>
+          <h3>꿀벌</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+            alias beatae commodi cum dignissimos doloremque dolores ex facere
+            hic illo ipsum labore laudantium magni quas quibusdam rerum
+            sapiente, suscipit tempora.
+          </p>
+        </Carousel.Item>
+        <Carousel.Item>
+          <a href="https://www.google.co.kr">
+            <img className="d-block w-100" src="/public/bear.jpg" alt="" />
+          </a>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src="/public/eagle.jpg" alt="" />
+        </Carousel.Item>
+      </Carousel>
+      <hr />
       <FloatingLabel label="아이디를 입력해주세요." controlId="idFloatingInput">
         <Form.Control placeholder="아이디를 입력해주세요." />
       </FloatingLabel>
@@ -100,4 +124,5 @@ function App18() {
     </div>
   );
 }
+
 export default App18;
