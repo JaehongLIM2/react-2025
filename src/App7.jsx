@@ -31,7 +31,12 @@ function App7() {
         skills={["javascript", "react", "typescript"]}
         person={{ name: "son", age: 33, team: "토트넘" }}
       />
-      <MyComp2 name="lee" age={33} address="jeju" married={true} />
+      <MyComp2
+        name="lee"
+        age={44}
+        address={{ city: "seoul", country: "korea" }}
+        married={true}
+      />
     </>
   );
 }
