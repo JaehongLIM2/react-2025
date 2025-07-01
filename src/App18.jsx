@@ -23,14 +23,16 @@ function App18() {
         <Carousel.Item>
           <a href="https://www.naver.com">
             <img className="d-block w-100" src="/public/bee.jpg" alt="" />
+            <Carousel.Caption>
+              <h3>꿀벌</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Adipisci alias beatae commodi cum dignissimos doloremque dolores
+                ex facere hic illo ipsum labore laudantium magni quas quibusdam
+                rerum sapiente, suscipit tempora.
+              </p>
+            </Carousel.Caption>
           </a>
-          <h3>꿀벌</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
-            alias beatae commodi cum dignissimos doloremque dolores ex facere
-            hic illo ipsum labore laudantium magni quas quibusdam rerum
-            sapiente, suscipit tempora.
-          </p>
         </Carousel.Item>
         <Carousel.Item>
           <a href="https://www.google.co.kr">
