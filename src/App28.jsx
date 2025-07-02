@@ -15,13 +15,11 @@ function MyComp1() {
     const [message, setMessage] = useState("");
   }
 
-  for (let i = 0; i< 3, i++) {
+  for (let i = 0; i < 3; i++) {
     const [other, setOther] = useState("");
   }
   let a = 3 + 5; // XX 중간에 다른 코드 작성 ㄴ
   const [alert, setAlert] = useState("");
-
-
 
   return null;
 }
