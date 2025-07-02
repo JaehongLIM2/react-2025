@@ -68,9 +68,61 @@ function MyComp3() {
   );
 }
 
+function MyComp4() {
+  const [student, setStudent] = useState({
+    name: "",
+    className: "",
+    score: 0.0,
+  });
+
+  function handleNameChange(e) {
+    const nextStudent = { ...student };
+    nextStudent.name = e.target.value;
+    setStudent(nextStudent);
+  }
+
+  function handleClassNameChange(e) {
+    const nextStudent = { ...student };
+    nextStudent.className = e.target.value;
+    setStudent(nextStudent);
+  }
+
+  function handleScoreChange(e) {
+    const nextStudent = { ...student };
+    nextStudent.score = e.target.value;
+    setStudent(nextStudent);
+  }
+
+  return (
+    <div>
+      <div>
+        <input type="text" value={student.name} onChange={handleNameChange} />
+      </div>
+      <div>
+        <input
+          type="text"
+          value={student.className}
+          onChange={handleClassNameChange}
+        />
+      </div>
+      <div>
+        <input
+          type="number"
+          step={0.1}
+          value={student.score}
+          onChange={handleScoreChange}
+        />
+      </div>
+      <button onClick={() => console.log(student)}>출력</button>
+    </div>
+  );
+}
+
 function App30(props) {
   return (
     <div>
+      <MyComp4 />
+      <hr />
       <MyComp3 />
       <hr />
       <MyComp2 />
