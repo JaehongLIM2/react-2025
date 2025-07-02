@@ -110,9 +110,40 @@ function MyComp6() {
   );
 }
 
+const images = ["/public/bear.jpg", "/public/eagle.jpg", "/public/bee.jpg"];
+
+function MyComp7() {
+  // 연습 : 다음 버튼 클릭시 독수리->벌->곰->독수리 로 출력되도록 코드 완성
+  const [index, setIndex] = useState(0);
+  const [changeImage, setChangeImage] = useState(images[0]);
+
+  function setNextImage() {
+    const nextIndex = (index + 1) % images.length;
+    setIndex(nextIndex);
+    return setChangeImage(images[nextIndex]);
+  }
+
+  function setPrevImage() {
+    const prevIndex = (index - 1 + images.length) % images.length;
+    setIndex(prevIndex);
+    return setChangeImage(images[prevIndex]);
+  }
+
+  return (
+    <div>
+      <img className="w-100" src={changeImage} alt="" />
+      <br />
+      <button onClick={setPrevImage}>이전</button>
+      <button onClick={setNextImage}>다음</button>
+    </div>
+  );
+}
+
 function App23(props) {
   return (
     <div>
+      <MyComp7 />
+      <hr />
       <MyComp6 />
       <hr />
       <MyComp5 />
