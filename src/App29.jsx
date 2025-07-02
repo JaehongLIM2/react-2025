@@ -105,9 +105,32 @@ function MyComp5() {
   );
 }
 
+function MyComp6() {
+  const [datas, setDatas] = useState(["java", "react", "css"]);
+  const [content, setContent] = useState("");
+  // 연습 : 추가 버튼 클릭 시 input 에 입력된 내용이 배열에 추가되도록 코드 작성
+  return (
+    <div>
+      <input
+        type="text"
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      />
+      <button onClick={() => setDatas([...datas, content])}>추가</button>
+      <ul>
+        {datas.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function App29(props) {
   return (
     <div>
+      <MyComp6 />
+      <hr />
       <MyComp5 />
       <hr />
       <MyComp4 />
