@@ -1,0 +1,146 @@
+import React, { createContext, useContext, useState } from "react";
+
+function ChildComp13({ text }) {
+  return (
+    <div>
+      <p>{text}</p>
+    </div>
+  );
+}
+
+function ChildComp12({ text }) {
+  return (
+    <div>
+      <ChildComp13 text={text} />
+    </div>
+  );
+}
+
+function ChildComp11({ text }) {
+  return (
+    <div>
+      <ChildComp12 text={text} />
+    </div>
+  );
+}
+
+function MyComp1() {
+  const [text, setText] = useState("");
+  return (
+    <div>
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <ChildComp11 text={text} />
+    </div>
+  );
+}
+
+function ChildComp23({ list }) {
+  return (
+    <div>
+      <h3>목록</h3>
+      <ul>
+        {/*  목록 출력 */}
+        {list.map((item, index) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function ChildComp22({ list }) {
+  return (
+    <div>
+      <ChildComp23 list={list} />
+    </div>
+  );
+}
+
+function ChildComp21({ list }) {
+  return (
+    <div>
+      <ChildComp22 list={list} />
+    </div>
+  );
+}
+
+function MyComp2() {
+  const [text, setText] = useState("");
+  const [list, setList] = useState([]);
+
+  function handleAddClick() {
+    setList([...list, text]);
+  }
+
+  return (
+    <div>
+      <input value={text} onChange={(e) => setText(e.target.value)} />
+      <button onClick={handleAddClick}>추가</button>
+      <ChildComp21 list={list} />
+    </div>
+  );
+}
+
+function ChildComp33() {
+  // step2. use context
+  const message = useContext(MyComp3Context);
+  return <div>메세지 : {message}</div>;
+}
+
+function ChildComp32() {
+  return (
+    <div>
+      <ChildComp33 />
+    </div>
+  );
+}
+
+function ChildComp31() {
+  return (
+    <div>
+      <ChildComp32 />
+    </div>
+  );
+}
+
+// step1. create context
+const MyComp3Context = createContext(null);
+
+function MyComp3() {
+  const [message, setMessage] = useState("");
+
+  // step3. provide context
+  return (
+    <div>
+      <input
+        type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <MyComp3Context value={message}>
+        <ChildComp31 />
+      </MyComp3Context>
+    </div>
+  );
+}
+
+function App35(props) {
+  return (
+    <div>
+      {/*using context*/}
+      <MyComp3 />
+      <hr />
+      {/*prop drilling*/}
+      <MyComp2 />
+      <hr />
+      {/*prop drilling*/}
+      <MyComp1 />
+    </div>
+  );
+}
+
+export default App35;
