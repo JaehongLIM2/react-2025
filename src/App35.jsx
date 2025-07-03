@@ -128,9 +128,67 @@ function MyComp3() {
   );
 }
 
+function ChildComp43() {
+  // step 3 : use context
+  const list = useContext(MyComp4Context);
+
+  return (
+    <div>
+      <h3>목록</h3>
+      <ul>
+        {/*  이곳에 목록 표시하기*/}
+        {list.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function ChildComp42() {
+  return (
+    <div>
+      <ChildComp43 />
+    </div>
+  );
+}
+
+function ChildComp41() {
+  return (
+    <div>
+      <ChildComp42 />
+    </div>
+  );
+}
+
+// step 1. : create context
+const MyComp4Context = createContext(null);
+
+function MyComp4() {
+  const [item, setItem] = useState("");
+  const [list, setList] = useState([]);
+  return (
+    <div>
+      <input
+        type="text"
+        value={item}
+        onChange={(e) => setItem(e.target.value)}
+      />
+      <button onClick={() => setList([...list, item])}>+</button>
+      {/* step3 : provide context*/}
+      <MyComp4Context.Provider value={list}>
+        <ChildComp41 />
+      </MyComp4Context.Provider>
+    </div>
+  );
+}
+
 function App35(props) {
   return (
     <div>
+      {/*using context*/}
+      <MyComp4 />
+      <hr />
       {/*using context*/}
       <MyComp3 />
       <hr />
