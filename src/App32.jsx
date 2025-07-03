@@ -9,19 +9,19 @@ function MyComp2() {
   const [history, setHistory] = useState([]);
 
   function handleNameChange(e) {
-    const nextPerson = structuredClone(person); // deep copy
+    const nextPerson = { ...person }; // shallow copy(하지말것)
     nextPerson.name = e.target.value;
     setPerson(nextPerson);
   }
 
   function handleCityChange(e) {
-    const nextPerson = structuredClone(person); // deep copy
+    const nextPerson = { ...person }; // shallow copy(하지말것)
     nextPerson.address.city = e.target.value;
     setPerson(nextPerson);
   }
 
   function handleCountryChange(e) {
-    const nextPerson = structuredClone(person); // deep copy
+    const nextPerson = { ...person }; // shallow copy(하지말것)
     nextPerson.address.country = e.target.value;
     setPerson(nextPerson);
   }
@@ -84,19 +84,19 @@ function MyComp1() {
   const [history, setHistory] = useState([]);
 
   function handleNameChange(e) {
-    const nextPerson = { ...person }; // shallow copy(하지말것)
+    const nextPerson = structuredClone(person); // deep copy
     nextPerson.name = e.target.value;
     setPerson(nextPerson);
   }
 
   function handleCityChange(e) {
-    const nextPerson = { ...person }; // shallow copy(하지말것)
+    const nextPerson = structuredClone(person); // deep copy
     nextPerson.address.city = e.target.value;
     setPerson(nextPerson);
   }
 
   function handleCountryChange(e) {
-    const nextPerson = { ...person }; // shallow copy(하지말것)
+    const nextPerson = structuredClone(person); // deep copy
     nextPerson.address.country = e.target.value;
     setPerson(nextPerson);
   }
