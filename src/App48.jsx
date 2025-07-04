@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router";
+import React, { useEffect } from "react";
+import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router";
 
 // /react/learn
 // /react/tutorial
@@ -7,22 +7,28 @@ import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 // /react/api
 
 function ReactLatout() {
+  useEffect(() => {
+    // 마운트 될 때 실행되는 코드
+    console.log("ReactLayout 컴포넌트 마운트됨");
+  }, []);
   return (
     <div>
       <div>
         <div className="d-flex justify-content-between">
           NAVBAR
           <div>
-            <a href="/react/learn">LEARN</a>
+            {/* 전체 페이지를 다시 마운트 하지않으려면 a 태그대신
+             react router 의 Link 컴포넌트 사용*/}
+            <Link to="/react/learn">LEARN</Link>
           </div>
           <div>
-            <a href="/react/tutorial">TUTORIAL</a>
+            <Link to="/react/tutorial">TUTORIAL</Link>
           </div>
           <div>
-            <a href="/react/docs">DOCS</a>
+            <Link to="/react/docs">DOCS</Link>
           </div>
           <div>
-            <a href="/react/api">API</a>
+            <Link to="/react/api">API</Link>
           </div>
         </div>
       </div>

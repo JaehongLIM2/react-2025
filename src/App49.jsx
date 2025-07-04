@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 
 // 연습
@@ -7,6 +7,9 @@ import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 // /react/state
 
 function ReactExample() {
+  useEffect(() => {
+    console.log("ReactExample 마운트 됨");
+  }, []);
   return (
     <div>
       {/*상단 제목 영역*/}
@@ -18,13 +21,13 @@ function ReactExample() {
       <div className="d-flex">
         <div className="d-flex flex-column me-5 gap-5 ">
           <div>
-            <a href="/react/install">INSTALL</a>
+            <Link to="/react/install">INSTALL</Link>
           </div>
           <div>
-            <a href="/react/game">GAME</a>
+            <Link to="/react/game">GAME</Link>
           </div>
           <div>
-            <a href="/react/state">STATE</a>
+            <Link to="/react/state">STATE</Link>
           </div>
         </div>
         <div className="flex-grow-1 bg-primary-subtle">
