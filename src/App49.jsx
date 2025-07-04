@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router";
+import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router";
 
 // 연습
 // /react/install
