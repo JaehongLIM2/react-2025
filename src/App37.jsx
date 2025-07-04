@@ -123,6 +123,7 @@ function Child41() {
       console.log("언마운트 됨");
     };
   }, []);
+  w;
   useEffect(() => {
     if (count !== 0) {
       console.log("count 업데이트 됨");
