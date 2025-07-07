@@ -9,8 +9,44 @@ function App53(props) {
     });
   }
 
+  function handleButton2Click() {
+    axios.request({
+      method: "get",
+      url: "api/main28/sub1",
+    });
+  }
+
+  function handleButton3Click() {
+    axios.request({
+      method: "post",
+      url: "/api/main28/sub2",
+    });
+  }
+
+  function handleButton4Click() {
+    axios.request({
+      method: "get",
+      url: "api/main28/sub4",
+    });
+  }
+
+  function handleButton5Click() {
+    axios.request({
+      method: "post",
+      url: "/api/main28/sub5",
+    });
+  }
+
   return (
     <div>
+      <button onClick={handleButton5Click}>연습 5</button>
+      <hr />
+      <button onClick={handleButton4Click}>연습 4</button>
+      <hr />
+      <button onClick={handleButton3Click}>요청보내기 3</button>
+      <hr />
+      <button onClick={handleButton2Click}>요청 보내기 2</button>
+      <hr />
       <button onClick={handleButton1Click}>요청 보내기</button>
     </div>
   );
